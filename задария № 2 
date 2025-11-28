@@ -1,25 +1,22 @@
-#include <iostream> 
-include < sstream> 
-include < string> 
+#include <iostream>
+#include <sstream>
+#include <string>
 
-unsing namespace std; 
+using namespace std;
 
-int main ()
- 
-{ 
-    string input = "I LOVE programming "; 
-    stringstream ss(input); 
-    string word , longest = "";
+int main() {
 
-    while ( ss >> word ) {
-        if ( word .length () > longest.length()) { 
+    string input = "I LOVE programming";
+    stringstream ss(input);
+    string word, longest = "";
 
-                   longest= word; 
-
-
+    while (ss >> word) {
+        if (word.length() > longest.length()) {
+            longest = word;
         }
-    } 
-    cout << longest << endl; 
+    }
 
-    return 0 ; 
+    cout << longest << endl;
+
+    return 0;
 }
