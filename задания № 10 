@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+void echanger(int &a, int &b) {
+    int t = a;
+    a = b;
+    b = t;
+}
+
+
+int partition(int tab[], int debut, int finish) {
+    int pivot = tab[finish];
+    int i = debut - 1;
+
+    for (int j = debut; j < finish; j++) {
+        if (tab[j] < pivot) {
+            i++;
+            echanger(tab[i], tab[j]);
+        }
+    }
+    echanger(tab[i + 1], tab[finish]);
+    return i + 1;
+}
+
+void quickSort(int tab[], int debut, int finish) {
+    if (debut < finish) {
+        int p = partition(tab, debut, finish);
+        quickSort(tab, debut, p - 1);
+        quickSort(tab, p + 1, finish);
+    }
+}
+
+int main() {
+
+    int tab[] = {12, 5, 3, 7, 19, 1, 8};
+    int n = sizeof(tab) / sizeof(tab[0]);
+
+    cout << "table before sorting: ";
+    for (int i = 0; i < n; i++) cout << tab[i] << " ";
+    cout << endl;
+
+    quickSort(tab, 0, n - 1);
+
+    cout << "table after sorting : ";
+    for (int i = 0; i < n; i++) cout << tab[i] << " ";
+    cout << endl;
+
+    return 0;
+}
