@@ -1,0 +1,23 @@
+#include <iostream>
+#include <sstream>
+#include <vector>
+using namespace std;
+
+int main() {
+    string s = "I love programming";
+
+    stringstream ss(s);
+    vector<string> mots;
+    string mot;
+
+    while (ss >> mot) {
+        mots.push_back(mot);
+    }
+
+    for (int i = mots.size() - 1; i >= 0; i--) {
+        cout << mots[i];
+        if (i > 0) cout << " ";
+    }
+
+    return 0;
+}
