@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int pgcd(int a, int b) {
+    if (a == b)
+        return a;
+    if (a > b)
+        return pgcd(a - b, b);
+    else
+        return pgcd(a, b - a);
+}
+
+int main() {
+    int a = 48, b = 18;
+
+    cout << "the PGCD de " << a << " and " << b << " is = " << pgcd(a, b) << endl;
+
+    return 0;
+}
