@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+// Fonction récursive f(n) = n^2 + f(n-1)
+int f(int n) {
+    if (n == 1)
+        return 1;
+    return n*n + f(n - 1);
+}
+
+int main() {
+    int n = 5; 
+
+    cout << "f(" << n << ") = " << f(n) << endl;
+
+    return 0;
+}
