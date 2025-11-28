@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+// Fonction récursive for thes Tris Hanoï
+void hanoi(int n, char A, char B, char C) {
+    if (n == 1) {
+        cout << "mov the disc 1 of " << A << " to " << C << endl;
+        return;
+    }
+    hanoi(n - 1, A, C, B);
+    cout << "mov the disc " << n << " of " << A << " to " << C << endl;
+    hanoi(n - 1, B, A, C);
+}
+
+int main() {
+    int n = 4;
+
+    cout << "Solution for " << n << " disc :" << endl;
+    hanoi(n, 'A', 'B', 'C');
+
+    return 0;
+}
