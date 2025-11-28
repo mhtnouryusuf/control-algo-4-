@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Fonction f(x)
+double f(double x) {
+    return x*x - 2;
+}
+
+double dichotomie(double a, double b, double eps) {
+    double mid = (a + b) / 2;
+
+    if (fabs(f(mid)) < eps)
+        return mid;
+
+    if (f(a) * f(mid) < 0)
+        return dichotomie(a, mid, eps);
+    else
+        return dichotomie(mid, b, eps);
+}
+
+int main() {
+    double a = 0, b = 2;
+    double eps = 0.0001;
+
+    cout << "Racine approx = " << dichotomie(a, b, eps) << endl;
+    return 0;
+}
